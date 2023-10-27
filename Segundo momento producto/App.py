@@ -29,6 +29,22 @@ mycursor = mydb.cursor()
 for db in mycursor:
     print(db)'''
 
+#Se crea un objeto de la clase User
+usuario = User( name = None,
+                age = None,
+                gender = None,
+                password= None
+                )
+#Se crea un objeto de la clase Bank
+banco =   Bank( name = None,
+                age = None,
+                gender = None,
+                password= None,
+                amount=None,
+                balance=None
+                )
+
+
 print("=========== BANCO POO =======\n\n")
 
 opciones = int(input("""Menu:
@@ -36,32 +52,25 @@ opciones = int(input("""Menu:
                      2 - Iniciar Sesión\n"""))
 
 if opciones == 1:
-    usuario = User( name = None,
-                    age = None,
-                    gender = None,
-                    password= None
-                    )
     usuario.registrar_usuario()
     opciones = int(input("""Menu:
                      1- Iniciar Sesión 
                      2 - Salir\n"""))
     if opciones == 1:
-        usuario = User( name = None,
-                    age = None,
-                    gender = None,
-                    password= None
-                    )
         usuario.iniciar_sesion()
-        
+    elif opciones == 2:
+         print("Gracias por utilizar nuestros servicios...")
+    else:
+         print("Por favor, escoja una opción valida")
 
 
 elif opciones == 2:
-     usuario = User( name = None,
-                    age = None,
-                    gender = None,
-                    password= None
-                    )
      usuario.iniciar_sesion()
+     opciones = int(input('''Menu:
+                    1- Retirar
+                    2 - Depositar
+                    3- Ver estado de la cuenta
+                    '''))
 
 else:
      print("Escoja una opción valida")
