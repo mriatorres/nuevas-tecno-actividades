@@ -67,19 +67,26 @@ class Bank(User):
         INSERT INTO account_table (user_acc, balance)
         VALUES(?)""", (account, amount))
         print("El monto consignado fue de : $", amount)
-        
         for i in mycursor:
             print(i)
 
     def withdraw(self):
+        account = int(input("Ingrese el numero de su cuenta: "))
         amount = float(input("Ingrese la cantidad a retirar : "))
         if self.balance >= amount:
             self.balance -= amount
             print("El monto retirado fue de : $", amount)
+            mycursor.execute("""
+            INSERT INTO account_table (user_acc, balance)
+            VALUES(?,?)""",(account, amount))
+            for i in mycursor:
+                print(i)
         else: 
             self.balance = self.balance - self.amount
             print("Fondos insuficientes...")
         
     def view_balance(self):
-        self.show_details()
+        account = int(input("Ingrese el numero de su cuenta: "))
+        mycursor.execute("""SELECT * FROM account_table WHERE user_acc=%s""",(account)
+        )
         print("Saldo de la cuenta : $", self.balance)

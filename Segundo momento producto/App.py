@@ -58,6 +58,20 @@ if opciones == 1:
                      2 - Salir\n"""))
     if opciones == 1:
         usuario.iniciar_sesion()
+        opciones = int(input('''Menu:
+                    1- Retirar
+                    2 - Depositar
+                    3- Ver estado de la cuenta
+                    '''))
+        if opciones == 1:
+            banco.withdraw()
+        elif opciones == 2:
+            banco.deposit()
+        elif opciones == 3:
+            banco.view_balance()
+        else:
+            print("Por favor, escoja una opción valida")
+    
     elif opciones == 2:
          print("Gracias por utilizar nuestros servicios...")
     else:
@@ -71,6 +85,16 @@ elif opciones == 2:
                     2 - Depositar
                     3- Ver estado de la cuenta
                     '''))
+     if opciones == 1:
+          banco.withdraw()
+     elif opciones == 2:
+          banco.deposit()
+     elif opciones == 3:
+          banco.view_balance()
+     else:
+        print("Por favor, escoja una opción valida")
+    
+     
 
 else:
      print("Escoja una opción valida")
